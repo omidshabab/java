@@ -1,76 +1,60 @@
 package practice_six;
 
 public class Main {
+
+    static public class Calculator {
+    private double result;
+
+    public Calculator() {
+        result = 0;
+    }
+
+    public double add(double operand1, double operand2) {
+        result = operand1 + operand2;
+        return result;
+    }
+
+    public double subtract(double operand1, double operand2) {
+        result = operand1 - operand2;
+        return result;
+    }
+
+    public double multiply(double operand1, double operand2) {
+        result = operand1 * operand2;
+        return result;
+    }
+
+    public double divide(double operand1, double operand2) {
+        if (operand2 != 0) {
+            result = operand1 / operand2;
+        } else {
+            System.out.println("Error: Division by zero!");
+        }
+        return result;
+    }
+
+    public double getResult() {
+        return result;
+    }
+
+    public void setResult(double result) {
+        this.result = result;
+    }
+}
+
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
 
-        calculator.add(5);
-        System.out.println("Display: " + calculator.getDisplay()); // Display: 5.0
-        
-        calculator.multiply(3);
-        System.out.println("Display: " + calculator.getDisplay()); // Display: 15.0
-        
-        calculator.subtract(7);
-        System.out.println("Display: " + calculator.getDisplay()); // Display: 8.0
-        
-        calculator.divide(2);
-        System.out.println("Display: " + calculator.getDisplay()); // Display: 4.0
-        
-        calculator.clearDisplay();
-        System.out.println("Display: " + calculator.getDisplay()); // Display: 0
-    }
+        double sum = calculator.add(5, 3);
+        System.out.println("Sum: " + sum);
 
-    static public class Calculator {
-        private String display;
-        private double memory;
+        double difference = calculator.subtract(7, 2);
+        System.out.println("Difference: " + difference);
 
-        public Calculator() {
-            display = "0";
-            memory = 0.0;
-        }
+        double product = calculator.multiply(4, 6);
+        System.out.println("Product: " + product);
 
-        public String getDisplay() {
-            return display;
-        }
-
-        public double getMemory() {
-            return memory;
-        }
-
-        public void setDisplay(String newDisplay) {
-            display = newDisplay;
-        }
-
-        public void setMemory(double newMemory) {
-            memory = newMemory;
-        }
-
-        public void clearDisplay() {
-            display = "0";
-        }
-
-        public void clearMemory() {
-            memory = 0.0;
-        }
-
-        public void add(double number) {
-            memory += number;
-        }
-
-        public void subtract(double number) {
-            memory -= number;
-        }
-
-        public void multiply(double number) {
-            memory *= number;
-        }
-
-        public void divide(double number) {
-            if (number != 0) {
-                memory /= number;
-            } else {
-                display = "Error: Division by zero";
-            }
-        }
+        double quotient = calculator.divide(10, 2);
+        System.out.println("Quotient: " + quotient);
     }
 }
